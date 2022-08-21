@@ -1,9 +1,12 @@
 public class Praktikum {
     public static void main(String[] args) {
-        /*
-             В этом методе заложи логику работы с классом Account.
-             Нужно создать экземпляр класса Account: в качестве аргумента передать тестируемое имя
-             и вызвать метод, который проверяет, можно ли использовать фамилию и имя для печати на банковской карте.
-         */
+        String fullName = "VolodyaKotlyarov ";
+        Account account = new Account(fullName);
+        boolean nameIsCorrect = account.checkNameToEmboss();
+        if (nameIsCorrect) {
+            System.out.println("Full name is correct");
+        } else {
+            System.out.println("Full name isn`t correct");
+        }
     }
 }
