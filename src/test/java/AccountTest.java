@@ -1,7 +1,8 @@
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import static org.junit.Assert.assertEquals;
 
 @RunWith(Parameterized.class)
 public class AccountTest {
@@ -21,13 +22,16 @@ public class AccountTest {
                 {"VolodyaKotlyarov ", false},
                 {"Volodya Kot lyarov", false},
                 {"VK", false},
-                {"Volodya Kotlyaroviche", false},
+                {"V K", true},
+                {"Volodya Kotlyarovic", true},
+                {"Volodya Kotlyarovich", false},
+                {null, false},
         };
     }
 
     @Test
     public void checkName(){
         Account account = new Account(name);
-        assertEquals(account.checkNameToEmboss(), expected);
+        assertEquals(expected, account.checkNameToEmboss());
     }
 }
